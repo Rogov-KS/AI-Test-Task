@@ -1,0 +1,14 @@
+fastapi
+httpx
+langgraph
+openai
+pydantic
+tenacity
+uvicorn
+
+[dev]
+mypy
+pytest
+pytest-asyncio
+respx
+ruff

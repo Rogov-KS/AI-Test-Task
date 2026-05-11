@@ -1,0 +1,173 @@
+.app-shell {
+  display: block;
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chat-panel {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.chat-panel {
+  min-height: calc(100svh - 48px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.chat-header,
+.chat-form {
+  padding: 24px;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.chat-header h1 {
+  margin: 0 0 8px;
+}
+
+.chat-header p {
+  color: var(--text);
+}
+
+.messages {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.message {
+  max-width: 85%;
+  border-radius: 18px;
+  padding: 14px 16px;
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--surface-muted);
+}
+
+.message p {
+  white-space: pre-wrap;
+}
+
+.message-user {
+  align-self: flex-end;
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+
+.message-assistant {
+  align-self: flex-start;
+}
+
+.message-role {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-h);
+}
+
+.chat-form {
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-form textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  font: inherit;
+  color: var(--text-h);
+  background: var(--surface);
+  box-sizing: border-box;
+}
+
+.chat-form textarea:focus {
+  outline: 2px solid var(--accent-border);
+  outline-offset: 2px;
+}
+
+.chat-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.primary-button,
+.secondary-button {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-button {
+  background: var(--text-h);
+  color: var(--bg);
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-h);
+}
+
+.primary-button:hover:not(:disabled),
+.secondary-button:hover {
+  transform: translateY(-1px);
+}
+
+.error-banner {
+  margin: 0 24px 24px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+@media (max-width: 960px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  .chat-panel {
+    min-height: auto;
+  }
+
+  .chat-header,
+  .chat-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .message {
+    max-width: 100%;
+  }
+}
