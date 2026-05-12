@@ -1,9 +1,0 @@
-pyproject.toml
-./__init__.py
-./main.py
-./main2.py
-bridge_time_agent.egg-info/PKG-INFO
-bridge_time_agent.egg-info/SOURCES.txt
-bridge_time_agent.egg-info/dependency_links.txt
-bridge_time_agent.egg-info/requires.txt
-bridge_time_agent.egg-info/top_level.txt

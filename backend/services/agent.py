@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from time import perf_counter
 
-from backend.agent.graph import build_agent_graph
+from backend.agent import answer_dialog_with_fallback, build_agent_graph
 from backend.agent.state import AgentState
 from backend.clients import KnowledgeProvider, LLMProvider, WikipediaLookupError
 from backend.core import get_logger, settings
@@ -23,6 +23,7 @@ class AgentService:
         llm_provider: LLMProvider | None = None,
     ) -> None:
         self._provider = provider
+        self._llm_provider = llm_provider
         self._graph = build_agent_graph(provider, llm_provider)
 
     @staticmethod
@@ -77,5 +78,12 @@ class AgentService:
         messages: list[ChatMessage],
         request_id: str | None = None,
     ) -> AnswerResponse:
+        self._extract_question(messages)
+        if settings.agent_dialog_fallback_enabled:
+            return await answer_dialog_with_fallback(
+                messages=messages,
+                llm_provider=self._llm_provider,
+                request_id=request_id,
+            )
         question = self._extract_question(messages)
         return await self.answer(question, request_id=request_id)

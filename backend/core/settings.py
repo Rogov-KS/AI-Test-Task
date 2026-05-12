@@ -35,6 +35,7 @@ class Settings(BaseModel):
     llm_temperature: float = 0.2
     llm_max_tokens: int = 5000
     llm_disable_reasoning: bool = True
+    agent_dialog_fallback_enabled: bool = False
     max_research_iterations: int = 3
     wikipedia_api_url: str = "https://en.wikipedia.org/w/api.php"
     wikipedia_timeout_s: float = 10.0
