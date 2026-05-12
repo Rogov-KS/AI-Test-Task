@@ -34,10 +34,6 @@ class DocumentFindingsPayload(BaseModel):
     missing_information: list[str] = Field(default_factory=list)
 
 
-def _tokens_to_chars(token_budget: int) -> int:
-    return max(240, token_budget * 4)
-
-
 def _truncate_text(value: str, limit: int = 750) -> str:
     if len(value) <= limit:
         return value

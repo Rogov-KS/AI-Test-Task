@@ -132,7 +132,7 @@ function App() {
       <section className="chat-panel">
         <header className="chat-header">
           <div>
-            <h1>Bridge Time Agent</h1>
+            <h1>TestTask AI Agent</h1>
             <p>Простой чат поверх backend-а с агентным расчетом и self-check.</p>
           </div>
           <button type="button" className="secondary-button" onClick={handleClear}>
